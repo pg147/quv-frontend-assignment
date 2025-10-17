@@ -12,7 +12,7 @@ export default function InstructorsProfileSection() {
         <Box
             component={'section'}
             h='fit-content'
-            py={96}
+            py={{ base: 36, lg: 96 }}
             px={{ base: 20, lg: 132 }}
         >
             <Flex direction={'column'} align={'flex-start'} w={'100%'} justify={'flex-start'}>
