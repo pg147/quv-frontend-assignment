@@ -1,9 +1,9 @@
-import { Text } from "@mantine/core";
+import HeroSection from "./sections/HeroSection.tsx";
 
 export default function App() {
     return(
-        <div>
-            <Text fw={'bold'} fz={'h1'}>Hi from Mantine</Text>
-        </div>
+        <main>
+            <HeroSection />
+        </main>
     );
 }
