@@ -91,6 +91,14 @@ export default function NewsletterSection() {
                             fz={14}
                             size="lg"
                             color={'primaryColor.0'}
+                            styles={(theme) => ({
+                                root: {
+                                    backgroundColor: theme.colors.primaryColor[0],
+                                    '&:hover': {
+                                        backgroundColor: theme.colors.primaryColor[2], // Use index 2 or 3 for darker shade
+                                    },
+                                },
+                            })}
                         >
                             Subscribe
                         </Button>

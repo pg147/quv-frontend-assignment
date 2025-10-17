@@ -2,14 +2,14 @@ import type { FeatureCards, FooterContact, FooterSection, NavLink, ProfileCardDa
 
 export const FEATURE_CARDS: FeatureCards[] = [
     {
-        title: 'Certified Teacher',
+        title: 'Certified Teachers',
         iconSrc: '/assets/icons/012-blackboards.svg',
         description: 'The gradual \n' +
             'accumulation of \n' +
             'information about '
     },
     {
-        title: 'Expert instruction',
+        title: 'Expert Instructions',
         iconSrc: '/assets/icons/013-telescope-1.svg',
         description: 'The gradual \n' +
             'accumulation of \n' +
@@ -22,25 +22,25 @@ export const FOOTER_DATA: FooterSection[] = [
         header: 'Company Info',
         links: [
             { label: 'About Us', href: '/' },
-            { label: 'Carrier', href: '/' },
-            { label: 'We are hiring', href: '/' },
-            { label: 'Blog', href: '/' }
+            { label: 'Careers', href: '/' },
+            { label: 'We are hiring!', href: '/' },
+            { label: 'Blogs', href: '/' }
         ]
     },
     {
         header: 'Legal',
         links: [
-            { label: 'About Us', href: '/' },
-            { label: 'Carrier', href: '/' },
-            { label: 'We are hiring', href: '/' },
-            { label: 'Blog', href: '/' }
+            { label: 'Privacy Policy', href: '/' },
+            { label: 'Terms of Service', href: '/' },
+            { label: 'Cookie Policy', href: '/' },
+            { label: 'Disclaimer', href: '/' }
         ]
     },
     {
         header: 'Features',
         links: [
             { label: 'Business Marketing', href: '/' },
-            { label: 'User Analytic', href: '/' },
+            { label: 'User Analytics', href: '/' },
             { label: 'Live Chat', href: '/' },
             { label: 'Unlimited Support', href: '/' }
         ]

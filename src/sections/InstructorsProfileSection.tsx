@@ -15,7 +15,7 @@ export default function InstructorsProfileSection() {
             py={{ base: 36, lg: 96 }}
             px={{ base: 20, lg: 132 }}
         >
-            <Flex direction={'column'} align={'flex-start'} w={'100%'} justify={'flex-start'}>
+            <Flex gap={{ base: 12, lg: 44 }} direction={'column'} align={'flex-start'} w={'100%'} justify={'flex-start'}>
                 <SectionHeader
                     preheader={'Team'}
                     title={'Get Quality Education'}
