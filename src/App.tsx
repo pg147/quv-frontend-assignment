@@ -1,5 +1,5 @@
 // UI Components
-import { Footer } from "./components";
+import { Footer, Navbar } from "./components";
 
 // Sections
 import HeroSection from "./sections/HeroSection.tsx";
@@ -10,6 +10,8 @@ import InstructorsProfileSection from "./sections/InstructorsProfileSection.tsx"
 export default function App() {
     return(
         <>
+            <Navbar />
+
             <main>
                 <HeroSection />
                 <FeaturesSection />

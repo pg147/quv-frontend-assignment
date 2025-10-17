@@ -31,3 +31,8 @@ export type ProfileCardData = {
     profession: string;
     image: string;
 };
+
+export type NavLink = {
+    label: string;
+    href: string
+};

@@ -1,4 +1,4 @@
-import type { FeatureCards, FooterContact, FooterSection, ProfileCardData } from "../types/componentTypes.ts";
+import type { FeatureCards, FooterContact, FooterSection, NavLink, ProfileCardData } from "../types/componentTypes.ts";
 
 export const FEATURE_CARDS: FeatureCards[] = [
     {
@@ -102,4 +102,11 @@ export const PROFILE_CARDS: ProfileCardData[] = [
         profession: 'Marketing Director',
         image: '/assets/users/user-cover-4.webp',
     }
+];
+
+export const NAV_LINKS: NavLink[] = [
+    { label: 'Home', href: '/' },
+    { label: 'Product', href: '/product' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Contact', href: '/contact' },
 ];

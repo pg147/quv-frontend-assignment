@@ -9,7 +9,7 @@ export default function HeroSection() {
         <Box component={'section'} h={'100vh'} bg={'secondaryColor.0'} pos={'relative'} px={{ base: 0, lg: 132 }}>
             {/* Wrapper Container */}
             <Flex
-                py={{ base: 36, lg: 0 }}
+                py={{ base: 112, lg: 0 }}
                 direction={'column'}
                 h={'100%'}
                 justify={{ base: 'flex-start', lg: 'center' }}
