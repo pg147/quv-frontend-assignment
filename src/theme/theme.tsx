@@ -18,7 +18,7 @@ const theme = createTheme({
             "#252b42", "#f2f3f8", "#e2e3e9", "#c2c5d3", "#9fa5bf", "#828aad", "#6f79a2", "#65709e", "#555f8b", "#4b547d",
         ],
         dangerColor: [
-            "#a01a10", "#fdeeec", "#f5d8d6", "#efada8", "#ea8077", "#e65a4d", "#e44333", "#e43725", "#ca2a1a", "#b42416",
+            "#E74040", "#fdeeec", "#f5d8d6", "#efada8", "#ea8077", "#e65a4d", "#e44333", "#e43725", "#ca2a1a", "#b42416",
         ],
         descriptionColor: [
             "#737373", "#fef2f5", "#eae6e7", "#cdcdcd", "#b2b2b2", "#9a9a9a", "#8b8b8b", "#848484", "#676465", "#5e5457"
