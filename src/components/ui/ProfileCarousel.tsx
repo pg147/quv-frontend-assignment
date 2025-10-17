@@ -5,7 +5,7 @@ import { Carousel } from '@mantine/carousel';
 import ProfileCard from "./ProfileCard.tsx";
 
 // Type definitions
-import type { ProfileCardData } from "../../types/componentTypes.ts";
+import type { ProfileCardData } from "../../types/dataTypes.ts";
 
 export default function ProfileCarousel({ slides }: { slides: ProfileCardData[] }) {
     return (

@@ -16,7 +16,16 @@ export default function FeaturesSection() {
                             'Newtonian mechanics '}
                     />
 
-                    <Button w={'fit-content'} fz={16} p={0} variant={'transparent'} rightSection={<LuChevronRight size={16} color={'#96ba7b'} />} color={'primaryColor.0'}>Learn more</Button>
+                    <Button
+                        w={'fit-content'}
+                        fz={16}
+                        p={0}
+                        variant={'transparent'}
+                        rightSection={<LuChevronRight size={16} color={'#96ba7b'} />}
+                        color={'primaryColor.0'}
+                    >
+                        Learn more
+                    </Button>
                 </Flex>
 
                 <Flex direction={{ base: 'column', lg: 'row' }} gap={24}>

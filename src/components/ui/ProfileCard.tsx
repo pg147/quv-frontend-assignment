@@ -2,7 +2,7 @@
 import { Button, Card, Group, Image, Stack, Text, Title } from "@mantine/core";
 
 // Type definitions
-import type { ProfileCardData } from "../../types/componentTypes.ts";
+import type { ProfileCardData } from "../../types/dataTypes.ts";
 
 export default function ProfileCard({ slideData }: { slideData: ProfileCardData }) {
     return (

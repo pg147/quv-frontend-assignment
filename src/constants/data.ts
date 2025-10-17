@@ -1,4 +1,4 @@
-import type { FeatureCards, FooterContact, FooterSection, NavLink, ProfileCardData } from "../types/componentTypes.ts";
+import type { FeatureCards, FooterContact, FooterSection, NavLink, ProfileCardData } from "../types/dataTypes.ts";
 
 export const FEATURE_CARDS: FeatureCards[] = [
     {

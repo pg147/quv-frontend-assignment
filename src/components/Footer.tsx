@@ -5,7 +5,7 @@ import { Anchor, Box, Button, Flex, Group, Image, SimpleGrid, Stack, Text } from
 import { FOOTER_CONTACT_DATA, FOOTER_DATA } from "../constants/data.ts";
 
 // Type definitions
-import type { ContactItem, FooterLink, FooterSection } from "../types/componentTypes.ts";
+import type { ContactItem, FooterLink, FooterSection } from "../types/dataTypes.ts";
 
 export default function Footer() {
     // Current Year for footer signature
