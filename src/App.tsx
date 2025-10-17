@@ -5,6 +5,7 @@ import { Footer } from "./components";
 import HeroSection from "./sections/HeroSection.tsx";
 import FeaturesSection from "./sections/FeaturesSection.tsx";
 import NewsletterSection from "./sections/NewsletterSection.tsx";
+import InstructorsProfileSection from "./sections/InstructorsProfileSection.tsx";
 
 export default function App() {
     return(
@@ -12,6 +13,7 @@ export default function App() {
             <main>
                 <HeroSection />
                 <FeaturesSection />
+                <InstructorsProfileSection />
                 <NewsletterSection />
             </main>
 

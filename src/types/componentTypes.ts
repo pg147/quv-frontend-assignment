@@ -24,3 +24,10 @@ export type FooterContact = {
     title: string;
     items: ContactItem[]
 };
+
+export type ProfileCardData = {
+    id: number;
+    name: string;
+    profession: string;
+    image: string;
+};

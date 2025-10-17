@@ -1,4 +1,4 @@
-import type { FeatureCards, FooterContact, FooterSection } from "../types/componentTypes.ts";
+import type { FeatureCards, FooterContact, FooterSection, ProfileCardData } from "../types/componentTypes.ts";
 
 export const FEATURE_CARDS: FeatureCards[] = [
     {
@@ -76,3 +76,30 @@ export const FOOTER_CONTACT_DATA: FooterContact = {
         }
     ]
 };
+
+export const PROFILE_CARDS: ProfileCardData[] = [
+    {
+        id: 1,
+        name: 'Arthur Morgan',
+        profession: 'Senior Software Engineer',
+        image: '/assets/users/user-cover-1.webp',
+    },
+    {
+        id: 2,
+        name: 'John Marston',
+        profession: 'UX Designer',
+        image: '/assets/users/user-cover-2.webp',
+    },
+    {
+        id: 3,
+        name: 'Sadie Adler',
+        profession: 'Product Manager',
+        image: '/assets/users/user-cover-3.webp',
+    },
+    {
+        id: 4,
+        name: 'Dutch van der Linde',
+        profession: 'Marketing Director',
+        image: '/assets/users/user-cover-4.webp',
+    }
+];
