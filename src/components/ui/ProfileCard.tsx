@@ -1,49 +1,65 @@
 // Mantine UI Components
-import { Button, Card, Group, Image, Stack, Text, Title } from "@mantine/core";
+import { ActionIcon, Card, Group, Image, Stack, Text, Title } from "@mantine/core";
+
+// Static Data
+import { SOCIAL_ICONS } from "../../constants/data.ts";
 
 // Type definitions
 import type { ProfileCardData } from "../../types/dataTypes.ts";
 
-export default function ProfileCard({ slideData }: { slideData: ProfileCardData }) {
+interface ProfileCardProps {
+    slideData: ProfileCardData;
+}
+
+export default function ProfileCard({ slideData }: ProfileCardProps) {
     return (
         <Card
             mih={375}
             miw={{ base: 0, lg: 240 }}
             shadow="sm"
             p={0}
-            bdrs={20}
+            radius={20}
         >
             {/* User Image */}
             <Card.Section>
                 <Image
                     src={slideData.image}
-                    h={'fit-content'}
-                    mah={250}
+                    h={250}
                     fit={'cover'}
-                    alt={slideData.name}
+                    alt={`${slideData.name} profile picture`}
+                    loading="lazy"
                 />
             </Card.Section>
 
-            <Stack align={'center'} py={28} justify={'center'} gap={12} style={{ flex: 1 }}>
+            <Stack align={'center'} py={28} gap={12}>
                 {/* User Name */}
-                <Title p={0} fz={20} fw={700}>{slideData.name}</Title>
+                <Title fz={20} fw={700}>
+                    {slideData.name}
+                </Title>
 
                 {/* User Profession */}
-                <Text p={0} fw={400} fz={14} c={'descriptionColor.0'}>
+                <Text fw={400} fz={14} c={'descriptionColor.0'}>
                     {slideData.profession}
                 </Text>
 
                 {/* Social Media Icons */}
-                <Group>
-                    <Button variant={'transparent'} p={0}>
-                        <Image src={'/assets/icons/facebook.svg'} alt={'Icon'} h={24} w={24} />
-                    </Button>
-                    <Button variant={'transparent'} p={0}>
-                        <Image src={'/assets/icons/instagram.svg'} alt={'Icon'} h={24} w={24} />
-                    </Button>
-                    <Button variant={'transparent'} p={0}>
-                        <Image src={'/assets/icons/twitter.svg'} alt={'Icon'} h={24} w={24} />
-                    </Button>
+                <Group gap={8}>
+                    {SOCIAL_ICONS.map((icon) => (
+                        <ActionIcon
+                            key={icon.alt}
+                            variant="transparent"
+                            size="lg"
+                            aria-label={icon.ariaLabel}
+                        >
+                            <Image
+                                src={icon.src}
+                                alt={icon.alt}
+                                h={24}
+                                w={24}
+                                loading="lazy"
+                            />
+                        </ActionIcon>
+                    ))}
                 </Group>
             </Stack>
         </Card>

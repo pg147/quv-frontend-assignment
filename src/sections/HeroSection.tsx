@@ -74,6 +74,7 @@ export default function HeroSection() {
                 bottom={0}
                 h={320}
                 w={'fit-content'}
+                loading={"eager"}
                 style={{ transform: 'translateX(-50%)' }}
                 hiddenFrom="lg"
             />
@@ -87,6 +88,7 @@ export default function HeroSection() {
                 bottom={0}
                 h={{ lg: 620, xl: 682 }}
                 w={'fit-content'}
+                loading={"eager"}
                 visibleFrom="lg"
             />
         </Box>

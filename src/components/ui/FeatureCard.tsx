@@ -6,7 +6,7 @@ export default function FeatureCard({ iconSrc, title, description }: { iconSrc: 
             <Stack gap={36}>
                 <Flex direction={'column'} gap={16} align={{ base: 'center', lg: 'normal' }}>
                     <Flex p={20} h={'fit-content'} w={'fit-content'} justify={'center'} align={'center'} bdrs={'lg'} bg={'primaryColor.0'}>
-                        <Image src={iconSrc ?? '/assets/icons/012-blackboards.svg'} alt={'Icon'} h={32} w={32} />
+                        <Image loading={'lazy'} src={iconSrc ?? '/assets/icons/012-blackboards.svg'} alt={'Icon'} h={32} w={32} />
                     </Flex>
 
                     <Text fz={20} fw={700}>{title}</Text>

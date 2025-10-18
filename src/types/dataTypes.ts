@@ -36,3 +36,9 @@ export type ProfileCardData = {
     profession: string;
     image: string;
 };
+
+export type SocialIcon = {
+    src: string;
+    alt: string;
+    ariaLabel: string
+};

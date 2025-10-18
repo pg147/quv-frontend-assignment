@@ -1,4 +1,11 @@
-import type { FeatureCards, FooterContact, FooterSection, NavLink, ProfileCardData } from "../types/dataTypes.ts";
+import type {
+    FeatureCards,
+    FooterContact,
+    FooterSection,
+    NavLink,
+    ProfileCardData,
+    SocialIcon
+} from "../types/dataTypes.ts";
 
 export const FEATURE_CARDS: FeatureCards[] = [
     {
@@ -109,4 +116,10 @@ export const NAV_LINKS: NavLink[] = [
     { label: 'Product', href: '/product' },
     { label: 'Pricing', href: '/pricing' },
     { label: 'Contact', href: '/contact' },
+];
+
+export const SOCIAL_ICONS: SocialIcon[] = [
+    { src: '/assets/icons/facebook.svg', alt: 'Facebook', ariaLabel: 'Visit Facebook profile' },
+    { src: '/assets/icons/instagram.svg', alt: 'Instagram', ariaLabel: 'Visit Instagram profile' },
+    { src: '/assets/icons/twitter.svg', alt: 'Twitter', ariaLabel: 'Visit Twitter profile' },
 ];

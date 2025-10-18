@@ -1,8 +1,8 @@
 // React imports
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 // Mantine UI Components
-import { AppShell, Box, Burger, Button, Drawer, Group, NavLink, Stack, Text, UnstyledButton, } from '@mantine/core';
+import { AppShell, Box, Burger, Button, Drawer, Group, NavLink, Stack, Text, UnstyledButton } from '@mantine/core';
 
 // Static Data
 import { NAV_LINKS } from "../constants/data.ts";
@@ -14,26 +14,32 @@ import { useDisclosure, useWindowScroll } from '@mantine/hooks';
 import { LuArrowRight } from 'react-icons/lu';
 
 export default function Navbar() {
-    // States to manage drawer visibility
-    const [opened, { toggle, close }] = useDisclosure(false);
-
-    // States to manage active links
+    // State to manage active links
     const [active, setActive] = useState('Home');
 
-    // States to manage scroll behavior
+    // State to manage drawer state
+    const [opened, { toggle, close }] = useDisclosure(false);
+
+    // State to manage scroll behavior
     const [isScrolled, setIsScrolled] = useState(false);
     const [scroll] = useWindowScroll();
 
-    useEffect((): void => {
+    // Optimize scroll handler with useEffect
+    useEffect(() => {
         setIsScrolled(scroll.y > 50);
     }, [scroll.y]);
+
+    // Memoize navigation click handler
+    const handleNavClick = useCallback((label: string) => {
+        setActive(label);
+        close();
+    }, [close]);
 
     return (
         <AppShell
             header={{ height: { base: 64, lg: 80 } }}
             padding={0}
         >
-            {/* Header */}
             <AppShell.Header
                 px={{ base: 20, lg: 132 }}
                 style={{
@@ -68,10 +74,9 @@ export default function Navbar() {
 
                     {/* Desktop Actions */}
                     <Group gap={16} visibleFrom="md">
-                        {/* Login Button */}
                         <Button
                             h={'fit-content'}
-                            bdrs={8}
+                            radius={8}
                             px={24}
                             py={16}
                             variant="outline"
@@ -82,31 +87,29 @@ export default function Navbar() {
                             Login
                         </Button>
 
-                        {/* Join Us Button */}
                         <Button
                             variant="filled"
                             color="primaryColor.0"
-                            bdrs={8}
-                            rightSection={<LuArrowRight size={16} />}
+                            radius={8}
+                            rightSection={<LuArrowRight size={16}/>}
                             h={'fit-content'}
                             px={24}
                             py={16}
                             fw={700}
                             fz={16}
-                            styles={(theme) => ({
+                            styles={{
                                 root: {
-                                    backgroundColor: theme.colors.primaryColor[0],
                                     '&:hover': {
-                                        backgroundColor: theme.colors.primaryColor[2], // Use index 2 or 3 for darker shade
+                                        filter: 'brightness(0.9)',
                                     },
                                 },
-                            })}
+                            }}
                         >
                             JOIN US
                         </Button>
                     </Group>
 
-                    {/* Mobile Hamburger Menu */}
+                    {/* Mobile Hamburger */}
                     <Burger
                         opened={opened}
                         onClick={toggle}
@@ -135,12 +138,9 @@ export default function Navbar() {
                         <NavLink
                             key={link.label}
                             label={link.label}
-                            color={active === link.label ? 'primaryColor.0' : 'descriptionColor.0'}
+                            color={'primaryColor.0'}
                             active={active === link.label}
-                            onClick={() => {
-                                setActive(link.label);
-                                close();
-                            }}
+                            onClick={() => handleNavClick(link.label)}
                             styles={{
                                 root: {
                                     borderRadius: 8,
@@ -169,7 +169,7 @@ export default function Navbar() {
                             <Button
                                 variant="filled"
                                 color="primaryColor.0"
-                                rightSection={<LuArrowRight size={16} />}
+                                rightSection={<LuArrowRight size={16}/>}
                                 fullWidth
                                 h={'fit-content'}
                                 px={24}
@@ -177,6 +177,13 @@ export default function Navbar() {
                                 fw={700}
                                 fz={14}
                                 onClick={close}
+                                styles={{
+                                    root: {
+                                        '&:hover': {
+                                            filter: 'brightness(0.9)',
+                                        },
+                                    },
+                                }}
                             >
                                 JOIN US
                             </Button>
