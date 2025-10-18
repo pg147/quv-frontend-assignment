@@ -19,6 +19,8 @@ export default function ProfileCard({ slideData }: ProfileCardProps) {
             shadow="sm"
             p={0}
             radius={20}
+            role="article"
+            aria-labelledby={`instructor-name-${slideData.name.toLowerCase().replace(/\s+/g, '-')}`}
         >
             {/* User Image */}
             <Card.Section>
@@ -26,14 +28,19 @@ export default function ProfileCard({ slideData }: ProfileCardProps) {
                     src={slideData.image}
                     h={250}
                     fit={'cover'}
-                    alt={`${slideData.name} profile picture`}
+                    alt={`Portrait photo of ${slideData.name}`}
                     loading="lazy"
                 />
             </Card.Section>
 
             <Stack align={'center'} py={28} gap={12}>
                 {/* User Name */}
-                <Title fz={20} fw={700}>
+                <Title
+                    id={`instructor-name-${slideData.name.toLowerCase().replace(/\s+/g, '-')}`}
+                    fz={20}
+                    fw={700}
+                    component="h3"
+                >
                     {slideData.name}
                 </Title>
 
@@ -43,20 +50,28 @@ export default function ProfileCard({ slideData }: ProfileCardProps) {
                 </Text>
 
                 {/* Social Media Icons */}
-                <Group gap={8}>
+                <Group
+                    gap={8}
+                    role="list"
+                    aria-label={`${slideData.name}'s social media links`}
+                >
                     {SOCIAL_ICONS.map((icon) => (
                         <ActionIcon
                             key={icon.alt}
+                            component="a"
+                            href={'#'}
                             variant="transparent"
                             size="lg"
-                            aria-label={icon.ariaLabel}
+                            aria-label={`${slideData.name}'s ${icon.ariaLabel}`}
+                            role="listitem"
                         >
                             <Image
                                 src={icon.src}
-                                alt={icon.alt}
+                                alt=""
                                 h={24}
                                 w={24}
                                 loading="lazy"
+                                aria-hidden="true"
                             />
                         </ActionIcon>
                     ))}

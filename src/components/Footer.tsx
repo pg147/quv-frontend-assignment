@@ -11,7 +11,7 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <Box component={'footer'} h={'fit-content'} w={'100%'}>
+        <Box component={'footer'} h={'fit-content'} w={'100%'} role="contentinfo">
             {/* Footer Links Grid */}
             <SimpleGrid
                 px={{ base: 20, lg: 132 }}
@@ -21,39 +21,57 @@ export default function Footer() {
             >
                 {/* Footer Sections */}
                 {FOOTER_DATA.map((section: FooterSection) => (
-                    <Stack key={section.header}>
-                        <Text c={'titleColor.0'} fz={16} fw={700}>
+                    <Stack key={section.header} component="nav" aria-labelledby={`footer-${section.header.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <Text
+                            id={`footer-${section.header.toLowerCase().replace(/\s+/g, '-')}`}
+                            c={'titleColor.0'}
+                            fz={16}
+                            fw={700}
+                            component="h2"
+                        >
                             {section.header}
                         </Text>
 
-                        <Stack gap={8}>
+                        <Stack gap={8} component="ul" style={{ listStyle: 'none', padding: 0 }}>
                             {section.links.map((link: FooterLink) => (
-                                <Anchor
-                                    key={link.label}
-                                    fz={{ base: 12, lg: 14 }}
-                                    c={'descriptionColor.0'}
-                                    href={link.href}
-                                >
-                                    {link.label}
-                                </Anchor>
+                                <Box key={link.label} component="li">
+                                    <Anchor
+                                        fz={{ base: 12, lg: 14 }}
+                                        c={'descriptionColor.0'}
+                                        href={link.href}
+                                    >
+                                        {link.label}
+                                    </Anchor>
+                                </Box>
                             ))}
                         </Stack>
                     </Stack>
                 ))}
 
                 {/* Footer Contact */}
-                <Stack>
-                    <Text c={'titleColor.0'} fz={16} fw={700}>
+                <Stack component="address" style={{ fontStyle: 'normal' }}>
+                    <Text
+                        c={'titleColor.0'}
+                        fz={16}
+                        fw={700}
+                        component="h2"
+                    >
                         {FOOTER_CONTACT_DATA.title}
                     </Text>
 
-                    <Stack gap={8}>
+                    <Stack gap={8} component="ul" style={{ listStyle: 'none', padding: 0 }}>
                         {FOOTER_CONTACT_DATA.items.map((item: ContactItem) => (
-                            <Group key={item.value} gap={12} align="center" wrap="nowrap">
-                                <Box miw={24} mih={24} style={{ flexShrink: 0 }}>
+                            <Group
+                                key={item.value}
+                                gap={12}
+                                align="center"
+                                wrap="nowrap"
+                                component="li"
+                            >
+                                <Box miw={24} mih={24} style={{ flexShrink: 0 }} aria-hidden="true">
                                     <Image
                                         src={item.icon}
-                                        alt={item.value}
+                                        alt=""
                                         h={{ base: 20, lg: 24 }}
                                         w={{ base: 20, lg: 24 }}
                                         fit="contain"
@@ -86,7 +104,7 @@ export default function Footer() {
                 justify={'space-between'}
             >
                 {/* Copyright */}
-                <Text c={'descriptionColor.0'} fz={14} fw={500}>
+                <Text c={'descriptionColor.0'} fz={14} fw={500} component="p">
                     Made With ❤️ By{' '}
                     <Anchor
                         c={'primaryColor.0'}
@@ -96,6 +114,7 @@ export default function Footer() {
                         href={'https://www.prathmesh.dev'}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Visit Prathmesh Gaidhane's portfolio website"
                     >
                         Prathmesh Gaidhane
                     </Anchor>
@@ -103,7 +122,7 @@ export default function Footer() {
                 </Text>
 
                 {/* Social Media */}
-                <Group gap={20}>
+                <Group gap={20} component="nav" aria-label="Social media links">
                     {SOCIAL_ICONS.map((icon) => (
                         <ActionIcon
                             key={icon.alt}
@@ -115,10 +134,11 @@ export default function Footer() {
                         >
                             <Image
                                 src={icon.src}
-                                alt={icon.alt}
+                                alt=""
                                 h={24}
                                 w={24}
                                 loading="lazy"
+                                aria-hidden="true"
                             />
                         </ActionIcon>
                     ))}

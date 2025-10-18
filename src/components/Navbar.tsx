@@ -48,27 +48,37 @@ export default function Navbar() {
                     transition: 'background-color 0.3s ease, border-bottom 0.3s ease',
                 }}
             >
-                <Group h="100%" justify="space-between">
+                <Group h="100%" justify="space-between" component="nav" role="navigation" aria-label="Main navigation">
                     {/* Logo */}
-                    <Text fz={{ base: 24, lg: 28 }} fw={700} c="titleColor.0">
+                    <Text
+                        component="a"
+                        href="/"
+                        fz={{ base: 24, lg: 28 }}
+                        fw={700}
+                        c="titleColor.0"
+                        style={{ textDecoration: 'none', cursor: 'pointer' }}
+                        aria-label="EduVista home"
+                    >
                         EduVista
                     </Text>
 
                     {/* Desktop Navigation */}
-                    <Group gap={64} visibleFrom="md">
+                    <Group gap={64} visibleFrom="md" component="ul" style={{ listStyle: 'none', padding: 0 }}>
                         {NAV_LINKS.map((link) => (
-                            <UnstyledButton
-                                key={link.label}
-                                onClick={() => setActive(link.label)}
-                            >
-                                <Text
-                                    fz={16}
-                                    fw={500}
-                                    c={active === link.label ? 'primaryColor.0' : 'descriptionColor.0'}
+                            <Box key={link.label} component="li">
+                                <UnstyledButton
+                                    onClick={() => setActive(link.label)}
+                                    aria-current={active === link.label ? 'page' : undefined}
                                 >
-                                    {link.label}
-                                </Text>
-                            </UnstyledButton>
+                                    <Text
+                                        fz={16}
+                                        fw={500}
+                                        c={active === link.label ? 'primaryColor.0' : 'descriptionColor.0'}
+                                    >
+                                        {link.label}
+                                    </Text>
+                                </UnstyledButton>
+                            </Box>
                         ))}
                     </Group>
 
@@ -83,6 +93,7 @@ export default function Navbar() {
                             color="primaryColor.0"
                             fw={700}
                             fz={16}
+                            aria-label="Log in to your account"
                         >
                             Login
                         </Button>
@@ -91,12 +102,13 @@ export default function Navbar() {
                             variant="filled"
                             color="primaryColor.0"
                             radius={8}
-                            rightSection={<LuArrowRight size={16}/>}
+                            rightSection={<LuArrowRight size={16} aria-hidden="true" />}
                             h={'fit-content'}
                             px={24}
                             py={16}
                             fw={700}
                             fz={16}
+                            aria-label="Join EduVista and start learning"
                             styles={{
                                 root: {
                                     '&:hover': {
@@ -115,6 +127,7 @@ export default function Navbar() {
                         onClick={toggle}
                         hiddenFrom="md"
                         size="md"
+                        aria-label={opened ? "Close navigation menu" : "Open navigation menu"}
                     />
                 </Group>
             </AppShell.Header>
@@ -132,24 +145,29 @@ export default function Navbar() {
                 }
                 padding="lg"
                 hiddenFrom="md"
+                aria-label="Mobile navigation menu"
             >
-                <Stack gap={0}>
-                    {NAV_LINKS.map((link) => (
-                        <NavLink
-                            key={link.label}
-                            label={link.label}
-                            color={'primaryColor.0'}
-                            active={active === link.label}
-                            onClick={() => handleNavClick(link.label)}
-                            styles={{
-                                root: {
-                                    borderRadius: 8,
-                                    fontWeight: 600,
-                                    fontSize: 16,
-                                },
-                            }}
-                        />
-                    ))}
+                <Stack gap={0} component="nav" role="navigation">
+                    <Box component="ul" style={{ listStyle: 'none', padding: 0 }}>
+                        {NAV_LINKS.map((link) => (
+                            <Box key={link.label} component="li">
+                                <NavLink
+                                    label={link.label}
+                                    color={'primaryColor.0'}
+                                    active={active === link.label}
+                                    onClick={() => handleNavClick(link.label)}
+                                    aria-current={active === link.label ? 'page' : undefined}
+                                    styles={{
+                                        root: {
+                                            borderRadius: 8,
+                                            fontWeight: 600,
+                                            fontSize: 16,
+                                        },
+                                    }}
+                                />
+                            </Box>
+                        ))}
+                    </Box>
 
                     <Box mt={24}>
                         <Stack gap={12}>
@@ -163,13 +181,14 @@ export default function Navbar() {
                                 py={12}
                                 fw={700}
                                 onClick={close}
+                                aria-label="Log in to your account"
                             >
                                 Login
                             </Button>
                             <Button
                                 variant="filled"
                                 color="primaryColor.0"
-                                rightSection={<LuArrowRight size={16}/>}
+                                rightSection={<LuArrowRight size={16} aria-hidden="true" />}
                                 fullWidth
                                 h={'fit-content'}
                                 px={24}
@@ -177,6 +196,7 @@ export default function Navbar() {
                                 fw={700}
                                 fz={14}
                                 onClick={close}
+                                aria-label="Join EduVista and start learning"
                                 styles={{
                                     root: {
                                         '&:hover': {

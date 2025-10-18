@@ -7,7 +7,11 @@ import ProfileCard from "./ProfileCard.tsx";
 // Type definitions
 import type { ProfileCardData } from "../../types/dataTypes.ts";
 
-export default function ProfileCarousel({ slides }: { slides: ProfileCardData[] }) {
+interface ProfileCarouselProps {
+    slides: ProfileCardData[];
+}
+
+export default function ProfileCarousel({ slides }: ProfileCarouselProps) {
     return (
         <Carousel
             py={36}
@@ -17,9 +21,15 @@ export default function ProfileCarousel({ slides }: { slides: ProfileCardData[] 
             controlSize={50}
             withControls
             withIndicators={false}
+            aria-label="Instructor profiles carousel"
+            aria-roledescription="carousel"
         >
             {slides.map((slide: ProfileCardData, index: number) => (
-                <Carousel.Slide pb={20} key={index}>
+                <Carousel.Slide
+                    pb={20}
+                    key={slide.name}
+                    aria-label={`Slide ${index + 1} of ${slides.length}: ${slide.name}, ${slide.profession}`}
+                >
                     <ProfileCard slideData={slide} />
                 </Carousel.Slide>
             ))}

@@ -6,7 +6,14 @@ import { SectionHeader } from "../components";
 
 export default function HeroSection() {
     return (
-        <Box component={'section'} h={'100vh'} bg={'secondaryColor.0'} pos={'relative'} px={{ base: 0, lg: 132 }}>
+        <Box
+            component={'section'}
+            h={'100vh'}
+            bg={'secondaryColor.0'}
+            pos={'relative'}
+            px={{ base: 0, lg: 132 }}
+            aria-label="Hero section"
+        >
             {/* Wrapper Container */}
             <Flex
                 py={{ base: 112, lg: 0 }}
@@ -36,28 +43,37 @@ export default function HeroSection() {
                     align={'center'}
                     justify={{ base: 'center', lg: 'normal' }}
                     gap={12}
+                    role="group"
+                    aria-label="Call to action buttons"
                 >
                     {/* Join Us Button */}
                     <Button
+                        component="a"
+                        href="#newsletter"
                         fz={{ base: 14, lg: 16 }}
                         h={'fit-content'}
-                        bdrs={'md'} px={40}
+                        radius={'md'}
+                        px={40}
                         py={{ base: 16, lg: 20 }}
                         variant={'filled'}
                         bg={'primaryColor.0'}
+                        aria-label="Join EduVista and start learning"
                     >
                         Join Us
                     </Button>
 
                     {/* Learn More Button */}
                     <Button
+                        component="a"
+                        href="#features"
                         fz={{ base: 14, lg: 16 }}
                         h={'fit-content'}
-                        bdrs={'md'}
+                        radius={'md'}
                         px={40}
                         py={{ base: 16, lg: 20 }}
                         variant={'outline'}
                         color={'primaryColor.0'}
+                        aria-label="Learn more about our courses and features"
                     >
                         Learn more
                     </Button>
@@ -68,30 +84,31 @@ export default function HeroSection() {
             {/* Mobile version - centered */}
             <Image
                 src={'/assets/hero/hero-cover-1.webp'}
-                alt={'Hero Cover'}
+                alt={'Students learning online with laptops and books'}
                 pos={'absolute'}
                 left={'50%'}
                 bottom={0}
                 h={320}
                 w={'fit-content'}
-                loading={"eager"}
+                loading="eager"
                 style={{ transform: 'translateX(-50%)' }}
                 hiddenFrom="lg"
+                role="img"
             />
 
             {/* Desktop version - right aligned */}
             <Image
                 src={'/assets/hero/hero-cover-1.webp'}
-                alt={'Hero Cover'}
+                alt={'Students learning online with laptops and books'}
                 pos={'absolute'}
                 right={0}
                 bottom={0}
                 h={{ lg: 620, xl: 682 }}
                 w={'fit-content'}
-                loading={"eager"}
+                loading="eager"
                 visibleFrom="lg"
+                role="img"
             />
         </Box>
     );
 }
-

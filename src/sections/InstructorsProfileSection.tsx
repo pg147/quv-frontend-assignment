@@ -11,9 +11,11 @@ export default function InstructorsProfileSection() {
     return (
         <Box
             component={'section'}
+            id="instructors"
             h='fit-content'
             py={{ base: 36, lg: 96 }}
             px={{ base: 20, lg: 132 }}
+            aria-labelledby="instructors-heading"
         >
             <Flex
                 gap={{ base: 12, lg: 44 }}
@@ -23,11 +25,12 @@ export default function InstructorsProfileSection() {
                 <SectionHeader
                     preheader={'Team'}
                     title={'Get Quality Education'}
-                    description={'Problems trying to resolve the conflict between \n' +
-                        'the two major realms of Classical physics: Newtonian mechanics '}
+                    description={'Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics'}
                 />
 
-                <ProfileCarousel slides={PROFILE_CARDS}/>
+                <Box aria-label="Our instructors carousel">
+                    <ProfileCarousel slides={PROFILE_CARDS}/>
+                </Box>
             </Flex>
         </Box>
     );
