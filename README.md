@@ -91,7 +91,7 @@ const handleNavClick = useCallback((label: string) => {
 - Mantine’s **theme system** ensures consistent spacing and typography
 - **CSS footprint:** ~30 KB (gzipped)
 - **Font:** Single family (*DM Sans*) for consistent loading performance
-- **Dark/Light mode support** via Mantine’s `ThemeProvider`
+- **Centralized theming** via Mantine's `ThemeProvider` for global style access
 
 ---
 
@@ -156,7 +156,6 @@ Each principle ensures the codebase is scalable and production-ready.
 - **🔒 Typed Props Interfaces** — Every component uses **TypeScript interfaces** to maintain *strong type safety* and enhance reusability.
 - **⚡ Static Data Extraction** — Constants and static data are *moved outside render scopes* to prevent unnecessary re-renders and boost runtime efficiency.
 - **🎨 Centralized Theming** — A unified **Mantine theme** provides consistent colors, typography, and spacing across the app for easier maintainability.
-- **♿ Accessibility-First** — Inclusive design patterns are *built in from the start*, ensuring compliance with **WCAG 2.1 AA** standards.
 
 ---
 
