@@ -21,7 +21,7 @@ export default function FeatureCard({ iconSrc, title, description }: FeatureCard
             }}
         >
             <Stack gap={20}>
-                <Flex direction={'column'} gap={20} align={{ base: 'center', lg: 'normal' }}>
+                <Flex direction={'column'} gap={20} align={{ base: 'center', sm: 'normal', lg: 'normal' }}>
                     <Flex
                         py={{ base: 20 , lg: 24 }}
                         px={{ base: 16 , lg: 20 }}
@@ -52,7 +52,7 @@ export default function FeatureCard({ iconSrc, title, description }: FeatureCard
                     </Text>
                 </Flex>
 
-                <Stack gap={20} maw={{ base: '100%', lg: 132 }}>
+                <Stack gap={20} maw={{ base: '100%', sm: 240, lg: 132 }}>
                     <Box
                         component={'div'}
                         h={3}

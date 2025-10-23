@@ -28,7 +28,7 @@ export default function ProfileCard({ slideData }: ProfileCardProps) {
             <Card.Section>
                 <Image
                     src={slideData.image}
-                    mah={351}
+                    mah={{ base: 351, sm: 290, lg: 351 }}
                     fit={'cover'}
                     alt={`Portrait photo of ${slideData.name}`}
                     loading="lazy"
@@ -39,7 +39,7 @@ export default function ProfileCard({ slideData }: ProfileCardProps) {
                 {/* User Name */}
                 <Title
                     id={`instructor-name-${slideData.name.toLowerCase().replace(/\s+/g, '-')}`}
-                    fz={20}
+                    fz={18}
                     fw={700}
                     component="h3"
                 >

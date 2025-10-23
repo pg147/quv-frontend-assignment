@@ -4,12 +4,14 @@ import { type ChangeEvent, type FormEvent, useState } from "react";
 // Mantine UI components
 import { Box, Button, Flex, Modal, Stack, Text, TextInput, Title } from "@mantine/core";
 
+// Custom Components
+import { SectionHeader } from "../components";
+
 // Mantine hooks
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 
 // Icons from react-icons library
 import { LuCheck } from "react-icons/lu";
-import { SectionHeader } from "../components";
 
 // Email validation regex constant
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -53,7 +55,7 @@ export default function NewsletterSection() {
             px={{ base: 20, lg: 132 }}
             aria-labelledby="newsletter-heading"
         >
-            <Stack align={'center'} gap={isLargeScreen ? 80 : 48}>
+            <Stack align={'center'} gap={isLargeScreen ? 72 : 48}>
                 {/* Header */}
                 <Box w={{ base: '100%', lg: '50%' }}>
                     <SectionHeader
@@ -61,6 +63,10 @@ export default function NewsletterSection() {
                         title={'Watch our Courses'}
                         description={'Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics'}
                         align={'center'}
+                        titleSize={{ base: 20, lg: 28 }}
+                        descriptionSize={{ base: 14, lg: 16 }}
+                        descriptionMaxWidth={{ base: '100%', sm: '70%', lg: '470px' }}
+                        preheaderSize={14}
                     />
                 </Box>
 
@@ -68,7 +74,7 @@ export default function NewsletterSection() {
                 <Box
                     component="form"
                     onSubmit={handleSubmit}
-                    w={'100%'}
+                    w={{ base: '100%', sm: '80%', lg: '100%' }}
                     maw={800}
                     role="form"
                     aria-label="Newsletter subscription form"

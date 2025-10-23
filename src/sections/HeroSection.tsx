@@ -1,17 +1,33 @@
 // Mantine UI Components
 import { Box, Button, Flex, Image } from "@mantine/core";
 
+// Mantine Hooks
+import { useMediaQuery } from "@mantine/hooks";
+
 // Custom components
 import { SectionHeader } from "../components";
 
 export default function HeroSection() {
+    // Detect tablet portrait
+    const isTabletPortrait = useMediaQuery('(min-width: 48em) and (orientation: portrait)');
+
+    // Detect tablet landscape
+    const isTabletLandscape = useMediaQuery('(min-width: 48em) and (orientation: landscape)');
+
+    // Calculate height based on conditions
+    const getImageHeight = () => {
+        if (isTabletPortrait) return 'clamp(450px, 70vh, 550px)';
+        if (isTabletLandscape) return 'clamp(300px, 50vh, 420px)';
+        return '320px'; // Mobile default
+    };
+
     return (
         <Box
             component={'section'}
             h={'100vh'}
             bg={'secondaryColor.0'}
             pos={'relative'}
-            px={{ base: 0, lg: 132 }}
+            px={{ base: 0, lg: 160 }}
             aria-label="Hero section"
         >
             {/* Wrapper Container */}
@@ -34,6 +50,10 @@ export default function HeroSection() {
                         preheader={'Welcome!'}
                         title={'Best Learning Opportunities'}
                         description={'Our goal is to make online education work for everyone'}
+                        descriptionSize={{ base: 14, lg: 16 }}
+                        descriptionMaxWidth={{ base: '80%', lg: '336px' }}
+                        titleSize={{ base: 28, sm: 36, lg: 56 }}
+                        titleMaxWidth={{ base: '100%', lg: '95%' }}
                     />
                 </Flex>
 
@@ -80,21 +100,22 @@ export default function HeroSection() {
                 </Flex>
             </Flex>
 
-            {/* Hero Image - Positioned absolutely relative to Box */}
-            {/* Mobile version - centered */}
             <Image
                 src={'/assets/hero/hero-cover-1.webp'}
                 alt={'Students learning online with laptops and books'}
                 pos={'absolute'}
                 left={'50%'}
                 bottom={0}
-                h={320}
                 w={'fit-content'}
                 loading="eager"
-                style={{ transform: 'translateX(-50%)' }}
+                style={{
+                    transform: 'translateX(-50%)',
+                    height: getImageHeight(),
+                }}
                 hiddenFrom="lg"
                 role="img"
             />
+
 
             {/* Desktop version - right aligned */}
             <Image
@@ -103,11 +124,13 @@ export default function HeroSection() {
                 pos={'absolute'}
                 right={0}
                 bottom={0}
-                h={{ lg: 620, xl: 682 }}
                 w={'fit-content'}
                 loading="eager"
                 visibleFrom="lg"
                 role="img"
+                style={{
+                    height: '85vh', // 75% of viewport height for desktop
+                }}
             />
         </Box>
     );

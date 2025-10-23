@@ -41,7 +41,7 @@ export default function Navbar() {
             padding={0}
         >
             <AppShell.Header
-                px={{ base: 20, lg: 132 }}
+                px={{ base: 20, lg: 160 }}
                 style={{
                     backgroundColor: isScrolled ? 'white' : 'transparent',
                     borderBottom: isScrolled ? '1px solid #f0f0f0' : 'none',
@@ -63,7 +63,7 @@ export default function Navbar() {
                     </Text>
 
                     {/* Desktop Navigation */}
-                    <Group gap={64} visibleFrom="md" component="ul" style={{ listStyle: 'none', padding: 0 }}>
+                    <Group gap={48} visibleFrom="md" component="ul" style={{ listStyle: 'none', padding: 0 }}>
                         {NAV_LINKS.map((link) => (
                             <Box key={link.label} component="li">
                                 <UnstyledButton

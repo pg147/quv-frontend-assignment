@@ -5,9 +5,30 @@ import { useMemo } from 'react';
 import { Flex, Text, Title } from "@mantine/core";
 
 // Type definitions
-import type { SectionHeaderProps } from "../../types/componentTypes.ts";
+interface SectionHeaderProps {
+    title: string;
+    description: string;
+    preheader?: string;
+    align?: 'left' | 'center' | 'right';
+    // Desktop customization props (lg breakpoint)
+    titleSize?: { base?: number; sm?: number; lg?: number };
+    titleMaxWidth?: { base?: string; lg?: string | number };  // Added title width prop
+    descriptionSize?: { base?: number; lg?: number };
+    descriptionMaxWidth?: { base?: string; lg?: string | number };
+    preheaderSize?: number;
+}
 
-export default function SectionHeader({ title, description, preheader, align = 'left' }: SectionHeaderProps) {
+export default function SectionHeader({
+                                          title,
+                                          description,
+                                          preheader,
+                                          align = 'left',
+                                          titleSize = { base: 28, lg: 56 },
+                                          titleMaxWidth = { base: '100%', lg: '100%' },  // Default to full width
+                                          descriptionSize = { base: 16, lg: 20 },
+                                          descriptionMaxWidth = { base: '80%', lg: 'fit-content' },
+                                          preheaderSize = 18
+                                      }: SectionHeaderProps) {
     // Memoize alignment calculations
     const { contentAlignment, textAlign } = useMemo(() => ({
         contentAlignment: align === 'left' ? 'flex-start' : align === 'center' ? 'center' : 'flex-end',
@@ -24,7 +45,7 @@ export default function SectionHeader({ title, description, preheader, align = '
             {preheader && (
                 <Text
                     c={'primaryColor.0'}
-                    fz={18}
+                    fz={preheaderSize}
                     fw={700}
                     ta={{ base: 'center', lg: textAlign }}
                 >
@@ -34,7 +55,13 @@ export default function SectionHeader({ title, description, preheader, align = '
 
             <Title
                 fw={700}
-                fz={{ base: 28, sm: 40, md: 48, lg: 56 }}
+                fz={{
+                    base: titleSize.base,
+                    sm: titleSize?.sm ?? 28,
+                    lg: titleSize.lg
+                }}
+                w={titleMaxWidth}  // Apply title width
+                maw={typeof titleMaxWidth.lg === 'number' ? titleMaxWidth.lg : undefined}
                 order={1}
                 c={'titleColor.0'}
                 ta={{ base: 'center', lg: textAlign }}
@@ -44,8 +71,9 @@ export default function SectionHeader({ title, description, preheader, align = '
 
             <Text
                 fw={400}
-                w={{ base: '80%', lg: 'fit-content' }}
-                fz={{ base: 16, lg: 20 }}
+                w={descriptionMaxWidth}
+                maw={typeof descriptionMaxWidth.lg === 'number' ? descriptionMaxWidth.lg : undefined}
+                fz={descriptionSize}
                 c={'descriptionColor.0'}
                 ta={{ base: 'center', lg: textAlign }}
             >

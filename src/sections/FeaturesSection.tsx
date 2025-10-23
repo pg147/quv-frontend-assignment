@@ -26,7 +26,7 @@ export default function FeaturesSection() {
             id="features"
             h={'fit-content'}
             bg={'white'}
-            px={{ base: 20, lg: 132 }}
+            px={{ base: 20, lg: 0 }}
             aria-labelledby="features-heading"
         >
             <Flex
@@ -34,6 +34,8 @@ export default function FeaturesSection() {
                 gap={{ base: 36, lg: 0 }}
                 direction={{ base: 'column', lg: 'row' }}
                 w={'100%'}
+                maw={{ base: '100%', lg: '1050px', xl: '1200px' }}
+                mx={{ base: 0, lg: 'auto' }}
                 align={'center'}
                 justify={{ base: 'center', lg: 'space-between' }}
             >
@@ -57,6 +59,9 @@ export default function FeaturesSection() {
                     <SectionHeader
                         title={'Affordable Packages'}
                         description={'Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics'}
+                        titleSize={{ base: 20, lg: 40 }}
+                        descriptionSize={{ base: 14, lg: 16 }}
+                        descriptionMaxWidth={{ base: '100%', sm: '70%', lg: '350px' }}
                     />
 
                     {/* Learn More Button with Hover Animation */}
@@ -90,7 +95,7 @@ export default function FeaturesSection() {
 
                 {/* Feature Cards Grid */}
                 <Flex
-                    direction={{ base: 'column', lg: 'row' }}
+                    direction={{ base: 'column', sm: 'row', lg: 'row' }}
                     gap={20}
                     role="list"
                     aria-label="Key features of our platform"

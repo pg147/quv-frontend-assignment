@@ -14,7 +14,7 @@ export default function Footer() {
         <Box component={'footer'} h={'fit-content'} w={'100%'} role="contentinfo">
             {/* Footer Links Grid */}
             <SimpleGrid
-                px={{ base: 20, lg: 132 }}
+                px={{ base: 20, lg: 160 }}
                 py={{ base: 36, lg: 56 }}
                 cols={{ base: 2, sm: 3, lg: 5 }}
             >
@@ -97,7 +97,7 @@ export default function Footer() {
                 direction={{ base: 'column-reverse', lg: 'row' }}
                 bg={'#FAFAFA'}
                 w={'100%'}
-                px={{ base: 20, lg: 132 }}
+                px={{ base: 20, lg: 160 }}
                 py={24}
                 align={'center'}
                 justify={'space-between'}
