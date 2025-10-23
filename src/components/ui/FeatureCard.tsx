@@ -23,8 +23,8 @@ export default function FeatureCard({ iconSrc, title, description }: FeatureCard
             <Stack gap={20}>
                 <Flex direction={'column'} gap={20} align={{ base: 'center', lg: 'normal' }}>
                     <Flex
-                        py={24}
-                        px={20}
+                        py={{ base: 20 , lg: 24 }}
+                        px={{ base: 16 , lg: 20 }}
                         h={'fit-content'}
                         w={'fit-content'}
                         justify={'center'}
@@ -37,8 +37,8 @@ export default function FeatureCard({ iconSrc, title, description }: FeatureCard
                             loading={'lazy'}
                             src={iconSrc ?? '/assets/icons/012-blackboards.svg'}
                             alt=""
-                            h={{ base: 24, lg: 32 }}
-                            w={{ base: 24, lg: 32 }}
+                            h={32}
+                            w={32}
                         />
                     </Flex>
 
