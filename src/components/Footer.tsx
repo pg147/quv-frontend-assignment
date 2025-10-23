@@ -16,12 +16,11 @@ export default function Footer() {
             <SimpleGrid
                 px={{ base: 20, lg: 132 }}
                 py={{ base: 36, lg: 56 }}
-                cols={{ base: 2, lg: 5 }}
-                spacing={{ base: 'xl', lg: 'xs' }}
+                cols={{ base: 2, sm: 3, lg: 5 }}
             >
                 {/* Footer Sections */}
                 {FOOTER_DATA.map((section: FooterSection) => (
-                    <Stack key={section.header} component="nav" aria-labelledby={`footer-${section.header.toLowerCase().replace(/\s+/g, '-')}`}>
+                    <Stack gap={0} key={section.header} component="nav" aria-labelledby={`footer-${section.header.toLowerCase().replace(/\s+/g, '-')}`}>
                         <Text
                             id={`footer-${section.header.toLowerCase().replace(/\s+/g, '-')}`}
                             c={'titleColor.0'}
@@ -49,7 +48,7 @@ export default function Footer() {
                 ))}
 
                 {/* Footer Contact */}
-                <Stack component="address" style={{ fontStyle: 'normal' }}>
+                <Stack gap={0} component="address" style={{ fontStyle: 'normal' }}>
                     <Text
                         c={'titleColor.0'}
                         fz={16}
