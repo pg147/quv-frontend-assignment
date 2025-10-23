@@ -51,7 +51,7 @@ export default function HeroSection() {
                         title={'Best Learning Opportunities'}
                         description={'Our goal is to make online education work for everyone'}
                         descriptionSize={{ base: 14, lg: 16 }}
-                        descriptionMaxWidth={{ base: '80%', lg: '336px' }}
+                        descriptionMaxWidth={{ base: '80%', sm: '100%', lg: '336px' }}
                         titleSize={{ base: 28, sm: 36, lg: 56 }}
                         titleMaxWidth={{ base: '100%', lg: '95%' }}
                     />

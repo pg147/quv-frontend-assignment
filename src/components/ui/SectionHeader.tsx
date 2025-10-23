@@ -14,7 +14,7 @@ interface SectionHeaderProps {
     titleSize?: { base?: number; sm?: number; lg?: number };
     titleMaxWidth?: { base?: string; lg?: string | number };  // Added title width prop
     descriptionSize?: { base?: number; lg?: number };
-    descriptionMaxWidth?: { base?: string; lg?: string | number };
+    descriptionMaxWidth?: { base?: string; sm?: string | number; lg?: string | number };
     preheaderSize?: number;
 }
 
