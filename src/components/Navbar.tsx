@@ -86,13 +86,13 @@ export default function Navbar() {
                     <Group gap={16} visibleFrom="md">
                         <Button
                             h={'fit-content'}
-                            radius={8}
                             px={24}
                             py={16}
-                            variant="outline"
+                            variant="transparent"
                             color="primaryColor.0"
                             fw={700}
                             fz={16}
+                            lh={1.2}
                             aria-label="Log in to your account"
                         >
                             Login
@@ -181,6 +181,7 @@ export default function Navbar() {
                                 py={12}
                                 fw={700}
                                 onClick={close}
+                                lh={1.2}
                                 aria-label="Log in to your account"
                             >
                                 Login

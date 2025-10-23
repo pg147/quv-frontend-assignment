@@ -5,7 +5,7 @@ import { type ChangeEvent, type FormEvent, useState } from "react";
 import { Box, Button, Flex, Modal, Stack, Text, TextInput, Title } from "@mantine/core";
 
 // Mantine hooks
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 
 // Custom components
 import { SectionHeader } from "../components";
@@ -19,6 +19,8 @@ const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 export default function NewsletterSection() {
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
+
+    const isLargeScreen = useMediaQuery('(min-width: 75em)');
 
     // Modal state management
     const [opened, { open, close }] = useDisclosure();
@@ -53,7 +55,7 @@ export default function NewsletterSection() {
             px={{ base: 20, lg: 132 }}
             aria-labelledby="newsletter-heading"
         >
-            <Stack align={'center'} gap={36}>
+            <Stack align={'center'} gap={isLargeScreen ? 80 : 48}>
                 {/* Header */}
                 <Box w={{ base: '100%', lg: '50%' }}>
                     <SectionHeader
@@ -87,12 +89,26 @@ export default function NewsletterSection() {
                             error={error}
                             leftSection={<LuMail size={20} aria-hidden="true" />}
                             leftSectionPointerEvents={'none'}
-                            placeholder={'Enter your email'}
+                            placeholder={'Your email'}
                             aria-label="Enter your email address to subscribe to our newsletter"
                             aria-required="true"
                             aria-invalid={!!error}
                             aria-describedby={error ? "email-error" : undefined}
                             required
+                            styles={{
+                                input: {
+                                    height: '60px',
+                                    minHeight: '60px',
+
+                                    borderRadius: '6px',
+
+                                    ...(isLargeScreen && {
+                                        borderRadius: '0px',
+                                        borderTopLeftRadius: '6px',
+                                        borderBottomLeftRadius: '6px',
+                                    })
+                                }
+                            }}
                         />
 
                         <Button
@@ -102,32 +118,31 @@ export default function NewsletterSection() {
                             fz={14}
                             size="lg"
                             color={'primaryColor.0'}
-                            miw={120}
+                            miw={128}
                             aria-label="Subscribe to newsletter"
                             styles={(theme) => ({
                                 root: {
+                                    height: '60px',
+                                    minHeight: '60px',
                                     backgroundColor: theme.colors.primaryColor[0],
                                     '&:hover': {
-                                        backgroundColor: theme.colors.primaryColor[2], // Use index 2 or 3 for darker shade
+                                        backgroundColor: theme.colors.primaryColor[2],
                                     },
+
+                                    borderRadius: '6px',
+
+                                    // Large screens: only left corners rounded
+                                    ...(isLargeScreen && {
+                                        borderRadius: '0',
+                                        borderTopRightRadius: '8px',
+                                        borderBottomRightRadius: '8px',
+                                    })
                                 },
                             })}
                         >
                             Subscribe
                         </Button>
                     </Flex>
-                    {error && (
-                        <Text
-                            id="email-error"
-                            c="red"
-                            fz={14}
-                            mt={8}
-                            role="alert"
-                            aria-live="polite"
-                        >
-                            {error}
-                        </Text>
-                    )}
                 </Box>
             </Stack>
 
@@ -139,7 +154,6 @@ export default function NewsletterSection() {
                 centered
                 withCloseButton={true}
                 closeButtonProps={{ 'aria-label': 'Close success message' }}
-                title="Subscription Successful"
                 aria-labelledby="modal-title"
                 aria-describedby="modal-description"
             >
@@ -172,21 +186,10 @@ export default function NewsletterSection() {
                         id="modal-description"
                         ta={'center'}
                         c={'descriptionColor.0'}
-                        maw={280}
+                        maw={{ base: 280, lg: 'max-content' }}
                     >
                         You&apos;ve successfully subscribed to our newsletter!
                     </Text>
-
-                    {/* Close Button */}
-                    <Button
-                        onClick={close}
-                        variant="filled"
-                        color="primaryColor.0"
-                        mt={12}
-                        aria-label="Close and return to page"
-                    >
-                        Got it!
-                    </Button>
                 </Stack>
             </Modal>
         </Box>
