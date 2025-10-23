@@ -109,13 +109,14 @@ export default function Navbar() {
                             fw={700}
                             fz={16}
                             aria-label="Join EduVista and start learning"
-                            styles={{
+                            styles={(theme) => ({
                                 root: {
+                                    backgroundColor: theme.colors.primaryColor[0],
                                     '&:hover': {
-                                        filter: 'brightness(0.9)',
+                                        backgroundColor: theme.colors.primaryColor[2],
                                     },
                                 },
-                            }}
+                            })}
                         >
                             JOIN US
                         </Button>
