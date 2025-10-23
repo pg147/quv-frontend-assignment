@@ -9,18 +9,22 @@ interface FeatureCardProps {
 export default function FeatureCard({ iconSrc, title, description }: FeatureCardProps) {
     return (
         <Card
-            shadow={'md'}
-            p={24}
-            bdrs={'xl'}
+            px={{ base: 24, lg: 40 }}
+            py={{ base: 24, lg: 36 }}
+            bdrs={0}
             w={'100%'}
             maw={{ base: '100%', lg: 250 }}
             role="article"
             aria-labelledby={`feature-${title.toLowerCase().replace(/\s+/g, '-')}`}
+            style={{
+                boxShadow: '0px 13px 19px 0px rgba(0, 0, 0, 0.07)'
+            }}
         >
-            <Stack gap={36}>
-                <Flex direction={'column'} gap={16} align={{ base: 'center', lg: 'normal' }}>
+            <Stack gap={20}>
+                <Flex direction={'column'} gap={20} align={{ base: 'center', lg: 'normal' }}>
                     <Flex
-                        p={20}
+                        py={24}
+                        px={20}
                         h={'fit-content'}
                         w={'fit-content'}
                         justify={'center'}
@@ -33,14 +37,14 @@ export default function FeatureCard({ iconSrc, title, description }: FeatureCard
                             loading={'lazy'}
                             src={iconSrc ?? '/assets/icons/012-blackboards.svg'}
                             alt=""
-                            h={32}
-                            w={32}
+                            h={{ base: 24, lg: 32 }}
+                            w={{ base: 24, lg: 32 }}
                         />
                     </Flex>
 
                     <Text
                         id={`feature-${title.toLowerCase().replace(/\s+/g, '-')}`}
-                        fz={20}
+                        fz={16}
                         fw={700}
                         component="h3"
                     >
@@ -48,11 +52,11 @@ export default function FeatureCard({ iconSrc, title, description }: FeatureCard
                     </Text>
                 </Flex>
 
-                <Stack gap={16}>
+                <Stack gap={20} maw={{ base: '100%', lg: 132 }}>
                     <Box
                         component={'div'}
                         h={3}
-                        w={{ base: 48, lg: 70 }}
+                        w={50}
                         bg={'dangerColor.0'}
                         aria-hidden="true"
                     />

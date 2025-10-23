@@ -47,12 +47,13 @@ export default function FeaturesSection() {
                 >
                     {/* Red Decorative Line */}
                     <Box
-                        h={8}
+                        h={{ base: 5, lg: 8 }}
                         w={{ base: 100, lg: 136 }}
                         bg={'dangerColor.0'}
                         aria-hidden="true"
                     />
 
+                    {/* Section Header */}
                     <SectionHeader
                         title={'Affordable Packages'}
                         description={'Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics'}
@@ -61,20 +62,27 @@ export default function FeaturesSection() {
                     {/* Learn More Button with Hover Animation */}
                     <Button
                         component="a"
-                        href="#instructors"
+                        href="#"
                         w={'fit-content'}
                         fz={16}
                         p={0}
                         variant={'transparent'}
-                        rightSection={<LuChevronRight size={16} color={'#96ba7b'} aria-hidden="true" />}
+                        rightSection={
+                            <span
+                                style={{
+                                    display: 'inline-flex',
+                                    marginLeft: -6,
+                                    transition: 'transform 0.3s ease',
+                                    transform: isHovered ? 'translateX(6px)' : 'translateX(0)',
+                                }}
+                            >
+                                <LuChevronRight size={20} color={'#96ba7b'} aria-hidden="true"/>
+                            </span>
+                        }
                         color={'primaryColor.0'}
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
                         aria-label="Learn more about our affordable packages and features"
-                        style={{
-                            transition: 'transform 0.3s ease',
-                            transform: isHovered ? 'translateX(12px)' : 'translateX(0)',
-                        }}
                     >
                         Learn more
                     </Button>
@@ -83,7 +91,7 @@ export default function FeaturesSection() {
                 {/* Feature Cards Grid */}
                 <Flex
                     direction={{ base: 'column', lg: 'row' }}
-                    gap={24}
+                    gap={20}
                     role="list"
                     aria-label="Key features of our platform"
                 >

@@ -26,7 +26,7 @@ export default function ProfileCarousel({ slides }: ProfileCarouselProps) {
         >
             {slides.map((slide: ProfileCardData, index: number) => (
                 <Carousel.Slide
-                    pb={20}
+                    pb={30}
                     key={slide.name}
                     aria-label={`Slide ${index + 1} of ${slides.length}: ${slide.name}, ${slide.profession}`}
                 >

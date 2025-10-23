@@ -16,17 +16,19 @@ export default function ProfileCard({ slideData }: ProfileCardProps) {
         <Card
             mih={375}
             miw={{ base: 0, lg: 240 }}
-            shadow="sm"
             p={0}
             radius={20}
             role="article"
+            style={{
+                boxShadow: '0px 13px 19px 0px rgba(0, 0, 0, 0.07)'
+            }}
             aria-labelledby={`instructor-name-${slideData.name.toLowerCase().replace(/\s+/g, '-')}`}
         >
             {/* User Image */}
             <Card.Section>
                 <Image
                     src={slideData.image}
-                    h={250}
+                    mah={351}
                     fit={'cover'}
                     alt={`Portrait photo of ${slideData.name}`}
                     loading="lazy"

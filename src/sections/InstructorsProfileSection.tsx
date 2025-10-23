@@ -18,7 +18,7 @@ export default function InstructorsProfileSection() {
             aria-labelledby="instructors-heading"
         >
             <Flex
-                gap={{ base: 12, lg: 44 }}
+                gap={{ base: 12, lg: 72 }}
                 direction={'column'}
                 w={'100%'}
             >

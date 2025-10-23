@@ -7,11 +7,9 @@ import { Box, Button, Flex, Modal, Stack, Text, TextInput, Title } from "@mantin
 // Mantine hooks
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 
-// Custom components
-import { SectionHeader } from "../components";
-
 // Icons from react-icons library
-import { LuCheck, LuMail } from "react-icons/lu";
+import { LuCheck } from "react-icons/lu";
+import { SectionHeader } from "../components";
 
 // Email validation regex constant
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -84,11 +82,9 @@ export default function NewsletterSection() {
                             onChange={handleEmailChange}
                             w={'100%'}
                             radius={0}
-                            size="lg"
+                            size="md"
                             fz={14}
                             error={error}
-                            leftSection={<LuMail size={20} aria-hidden="true" />}
-                            leftSectionPointerEvents={'none'}
                             placeholder={'Your email'}
                             aria-label="Enter your email address to subscribe to our newsletter"
                             aria-required="true"
@@ -101,6 +97,8 @@ export default function NewsletterSection() {
                                     minHeight: '60px',
 
                                     borderRadius: '6px',
+
+                                    paddingLeft: '20px',
 
                                     ...(isLargeScreen && {
                                         borderRadius: '0px',

@@ -30,7 +30,7 @@ const theme = createTheme({
         ],
     },
 
-    fontFamily: 'DM Sans, sans-serif'
+    fontFamily: 'Montserrat, sans-serif'
 });
 
 // Wrapper Provider component to wrap the entire app with the theme
